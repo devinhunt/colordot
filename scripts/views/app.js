@@ -7,25 +7,32 @@ $(function() {
     el: "#swatches",
 
     events: {
-      "click": "snapColor"
+      "click #edit": "snapColor"
     },
 
     initialize: function() {
       app.Colors.on("add", this.addOne, this);
       app.Colors.on("reset", this.addAll, this);
+      app.Colors.on("remove", this.layout, this);
 
       this.editModel = new app.Color();
       this.editModel.on("change", this.render, this);
 
-      $(window).mousemove(_.bind(this.move, this));
+      this.$("#edit").mousemove(_.bind(this.move, this));
       this.$("#edit").scroll(_.bind(this.scale, this)).scrollTop(500);
     },
 
     render: function() {
+      this.$("#edit").css({
+        "background": this.editModel.hslCss()
+      });
+    },
+
+    layout: function() {
       var w = $(window).width(),
           sliceSize = Math.floor(w / (app.Colors.length + 3));
 
-      this.$('li:not(#edit)').each(function(i, el) {
+      this.$('li:not(#edit):not(.destroyed)').each(function(i, el) {
         $(el).css({
           left: i * sliceSize,
           width: sliceSize,
@@ -34,10 +41,6 @@ $(function() {
 
       this.$("#edit").css({
         left: app.Colors.length * sliceSize,
-      });
-
-      this.$("#edit").css({
-        "background": this.editModel.hslCss()
       });
     },
 
@@ -55,7 +58,7 @@ $(function() {
       setTimeout(_.bind(function() {
         view.$el.addClass("animating");
         view.$el.css("background", view.model.hslCss());
-        this.render();
+        this.layout();
       }, this), 0);
       
     },

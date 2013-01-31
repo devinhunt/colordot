@@ -13,12 +13,20 @@
 
 #swatches li {
   position: absolute;
+  z-index: 10;
   top: 0; right: 0; bottom: 0; left: 0;
 }
 
 #swatches #edit {
   overflow-y: auto;
   right: 0;
+
+  /* Special animating props */
+  -webkit-transition: left .5s linear;
+  -moz-transition: left .5s linear;
+  -ms-transition: left .5s linear;
+  -o-transition: left .5s linear;
+  transition: left .5s linear;
 }
 
 #swatches #edit #constraints {
@@ -28,9 +36,9 @@
 }
 
 .animating {
-  -webkit-transition: all .8s ease-out;
-  -moz-transition: all .8s ease-out;
-  -ms-transition: all .8s ease-out;
-  -o-transition: all .8s ease-out;
-  transition: all .8s ease-out;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -ms-transition: all .5s linear;
+  -o-transition: all .5s linear;
+  transition: all .5s linear;
 }
