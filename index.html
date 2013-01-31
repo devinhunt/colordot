@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Swatch</title>
+    <meta name="description" content="Color picker for data driven design">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  
+  <body>
+
+    <ul id="swatches">
+      <li id="edit"><div id="constraints"></div></li>
+    </ul>
+
+    <!-- Templates -->
+    <script type="text/template" id="template-color">
+    </script>
+
+    <!-- Libraries -->
+    <script src="scripts/vendor/jquery.min.js"></script>
+    <script src="scripts/vendor/underscore-min.js"></script>
+    <script src="scripts/vendor/backbone-min.js"></script>
+    <script src="scripts/vendor/color.min.js"></script>
+
+    <!-- The swatch app -->
+    <script src="scripts/models/color.js"></script>
+    <script src="scripts/collections/colors.js"></script>
+    <script src="scripts/views/color.js"></script>
+    <script src="scripts/views/app.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
