@@ -1,4 +1,4 @@
-var app = app || {};
+  var app = app || {};
 
 $(function() {
   "use strict";
@@ -20,6 +20,7 @@ $(function() {
 
       this.$("#edit").mousemove(_.bind(this.move, this));
       this.$("#edit").scroll(_.bind(this.scale, this)).scrollTop(500);
+      $(window).resize(_.bind(this.layout, this));
     },
 
     render: function() {
@@ -30,7 +31,7 @@ $(function() {
 
     layout: function() {
       var w = $(window).width(),
-          sliceSize = Math.floor(w / (app.Colors.length + 3));
+          sliceSize = Math.floor(w / (app.Colors.length + 2));
 
       this.$('li:not(#edit):not(.destroyed)').each(function(i, el) {
         $(el).css({
@@ -80,7 +81,7 @@ $(function() {
       var editEl = this.$("#edit"),
           w = editEl.width(),
           h = editEl.height(),
-          x, y, offset, hue, sat, col;
+          x, y, offset, hue, lit, col;
 
       offset = editEl.offset();
 
@@ -88,11 +89,11 @@ $(function() {
       y = Math.max(0, event.pageY - offset.top);
 
       hue = Math.floor(x / w * 360),
-      sat = Math.floor(y / h * 100);
+      lit = Math.floor(y / h * 100);
 
       this.editModel.set({
         h: hue,
-        s: sat
+        l: lit
       });
     },
 
@@ -101,7 +102,7 @@ $(function() {
       offset = Math.max(0, Math.min(100, offset));
 
       this.editModel.set({
-        l: offset
+        s: offset
       });
     }
 

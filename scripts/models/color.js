@@ -23,6 +23,10 @@ $(function() {
 
     hslCss: function() {
       return this.getColor().hslString();
+    },
+
+    hexCss: function() {
+      return this.getColor().hexString();
     }
 
   });

@@ -7,10 +7,10 @@ $(function() {
     
     tagName: "li",
 
-    template: _.template('<button class="remove">x</button>'),
+    template: _.template( $("#template-color").html() ),
 
     events: {
-      "click .remove": "destroy"
+      "click .destroy": "destroy"
     },
 
     initialize: function() {
@@ -21,7 +21,9 @@ $(function() {
     render: function() {
       this.$el.css({
         background: this.model.hslCss()
-      }).html(this.template());
+      }).html(this.template({
+        colorHex: this.model.hexCss()
+      }));
 
       return this;
     },

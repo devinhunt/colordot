@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
   
@@ -16,6 +17,16 @@
     <ul id="swatches">
       <li id="edit" class="animating"><div id="constraints"></div></li>
     </ul>
+
+    <!-- Templates -->
+    <script type="text/template" id="template-color">
+      <div class="info">
+        <h2><%= colorHex %></h2>
+        <div class="controls">
+          <button class="destroy btn"><i class="icon-remove icon-2x"></i></button>
+        </div>
+      </div>
+    </script>
 
     <!-- Libraries -->
     <script src="scripts/vendor/jquery.min.js"></script>
