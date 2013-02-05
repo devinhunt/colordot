@@ -7,7 +7,7 @@ $(function() {
     el: "#swatches",
 
     events: {
-      "click #edit": "snapColor"
+      "click #edit": "grabColor"
     },
 
     initialize: function() {
@@ -43,6 +43,8 @@ $(function() {
       this.$("#edit").css({
         left: app.Colors.length * sliceSize,
       });
+
+      app.Router.pushColorState();
     },
 
     addOne: function(color) {
@@ -69,7 +71,7 @@ $(function() {
       app.Colors.each(this.addOne, this);
     },
 
-    snapColor: function(event) {
+    grabColor: function(event) {
       app.Colors.add({
         h: this.editModel.get("h"),
         s: this.editModel.get("s"),
