@@ -6,20 +6,31 @@ $(function() {
   app.SwatchAppView = Backbone.View.extend({
     el: "#swatches",
 
-    events: {
-      "click #edit": "grabColor"
-    },
+    isTouchMove: false,
+    startSaturation: 0,
 
     initialize: function() {
       app.Colors.on("add", this.addOne, this);
       app.Colors.on("reset", this.addAll, this);
       app.Colors.on("remove", this.layout, this);
 
-      this.editModel = new app.Color();
+      this.editModel = new app.Color({h: 180, s: 50, l: 50});
       this.editModel.on("change", this.render, this);
 
-      this.$("#edit").mousemove(_.bind(this.move, this));
-      this.$("#edit").scroll(_.bind(this.scale, this)).scrollTop(500);
+      if(window.Touch) {
+        this.$("#edit").bind("touchstart", _.bind(this.touchstart, this))
+          .bind("touchmove", _.bind(this.touchmove, this))
+          .bind("touchend", _.bind(this.touchend, this))
+          .bind("gesturestart", _.bind(this.gesturestart, this))
+          .bind("gesturechange", _.bind(this.gesturechange, this));
+
+      } else {
+        this.$("#edit").mousemove(_.bind(this.mousemove, this))
+          .scroll(_.bind(this.scroll, this))
+          .click(_.bind(this.grabColor, this))
+          .scrollTop(500);
+      }
+
       $(window).resize(_.bind(this.layout, this));
     },
 
@@ -79,7 +90,7 @@ $(function() {
       });
     },
 
-    move: function(event) {
+    move: function(px, py) {
       var editEl = this.$("#edit"),
           w = editEl.width(),
           h = editEl.height(),
@@ -87,8 +98,8 @@ $(function() {
 
       offset = editEl.offset();
 
-      x = Math.max(0, event.pageX - offset.left);
-      y = Math.max(0, event.pageY - offset.top);
+      x = Math.max(0, px - offset.left);
+      y = Math.max(0, py - offset.top);
 
       hue = Math.floor(x / w * 360),
       lit = Math.floor(y / h * 100);
@@ -99,13 +110,48 @@ $(function() {
       });
     },
 
-    scale: function(event) {
+    scroll: function(event) {
       var offset = this.$("#edit").scrollTop() / 10;
       offset = Math.max(0, Math.min(100, offset));
 
       this.editModel.set({
         s: offset
       });
+    },
+
+    mousemove: function(event) {
+      this.move(event.pageX, event.pageY);
+    },
+
+    touchstart: function(event) {
+      event.preventDefault();
+      this.isTouchMoved = false;
+    },
+
+    touchmove: function(event) {
+      this.move(event.originalEvent.touches[0].pageX, event.originalEvent.touches[0].pageY);
+      this.isTouchMoved = true;
+    },
+
+    touchend: function(event) {
+      if(! this.isTouchMoved) {
+        this.grabColor();
+      }
+    },
+
+    gesturestart: function(event) {
+      event.preventDefault();
+      this.startSaturation = this.editModel.get("s");
+    },
+
+    gesturechange: function(event) {
+
+      if(event.originalEvent.scale) {
+        var offset = Math.max(0, Math.min(100, this.startSaturation * event.originalEvent.scale));
+        this.editModel.set({
+          s: offset
+        });
+      }
     }
 
   });

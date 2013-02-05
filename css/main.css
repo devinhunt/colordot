@@ -15,34 +15,35 @@
   position: absolute;
   z-index: 10;
   top: 0; right: 0; bottom: 0; left: 0;
+  overflow: hidden;
 }
 
 #swatches li .info {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, .5);
-
-  width: 100px;
-
-  color: white;
-
+  margin: 0 auto; padding: 20px 0;
+  width: 110px;
+  border-radius: 3px;
   -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
-  border-radius: 4px;
+  
+  background: rgba(0, 0, 0, .5);
+  color: white;
   text-align: center;
 }
 
 #swatches li .info h2 {
   font-size: 12px;
-  line-height: 40px;
+  line-height: 30px;
   margin: 0; padding: 0;
 }
 
 #swatches li .info .controls {
   line-height: 20px;
-  padding-bottom: 20px;
 }
 
 

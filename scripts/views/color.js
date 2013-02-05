@@ -22,7 +22,8 @@ $(function() {
       this.$el.css({
         background: this.model.hslCss()
       }).html(this.template({
-        colorHex: this.model.hexCss()
+        colorHex: this.model.hexCss(),
+        colorHsl: this.model.hslCss(),
       }));
 
       return this;

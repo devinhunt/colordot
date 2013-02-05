@@ -25,7 +25,6 @@ $(function() {
      */
     pushColorState: function() {
       var hash = app.Colors.reduce(function(memo, color) {
-        console.log(memo, color);
         return memo + color.hexCss() + ',';
       }, "_");
 
