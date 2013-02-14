@@ -20,7 +20,7 @@ $(function() {
 
     render: function() {
       this.$el.css({
-        background: this.model.hslCss()
+        backgroundColor: this.model.hslCss()
       }).html(this.template({
         colorHex: this.model.hexCss(),
         colorHsl: this.model.hslCss(),

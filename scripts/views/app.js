@@ -25,7 +25,7 @@ $(function() {
           .bind("gesturechange", _.bind(this.gesturechange, this));
 
       } else {
-        this.$("#edit").mousemove(_.bind(this.mousemove, this))
+        this.$("#constraints").mousemove(_.bind(this.mousemove, this))
           .scroll(_.bind(this.scroll, this))
           .click(_.bind(this.grabColor, this))
           .scrollTop(500);
@@ -38,6 +38,8 @@ $(function() {
       this.$("#edit").css({
         "background": this.editModel.hslCss()
       });
+
+      this.$("#edit h2").html(this.editModel.hexCss());
     },
 
     layout: function() {
@@ -111,7 +113,7 @@ $(function() {
     },
 
     scroll: function(event) {
-      var offset = this.$("#edit").scrollTop() / 10;
+      var offset = this.$("#constraints").scrollTop() / 10;
       offset = Math.max(0, Math.min(100, offset));
 
       this.editModel.set({
