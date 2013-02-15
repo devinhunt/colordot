@@ -150,3 +150,7 @@ body {
   margin: 0 20px;
   vertical-align: top;
 }
+
+#help-box .social {
+  margin-bottom: 30px;
+}
