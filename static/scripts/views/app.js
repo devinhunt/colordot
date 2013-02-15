@@ -60,8 +60,6 @@ $(function() {
       this.$("#edit").css({
         left: app.Colors.length * sliceSize,
       });
-
-      app.Router.pushColorState();
     },
 
     addOne: function(color) {
@@ -80,12 +78,17 @@ $(function() {
         view.$el.css("background", view.model.hslCss());
         this.layout();
       }, this), 0);
-      
+
+      //app.Router.pushColorState();
     },
 
     addAll: function() {
-      this.$("#colors").html('');
+      this.$("#colors li:not(#edit)").remove();
       app.Colors.each(this.addOne, this);
+
+      if(app.Colors.length == 0) {
+        this.layout();
+      }
     },
 
     togglehelp: function(event) {

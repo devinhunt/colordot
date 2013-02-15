@@ -12,8 +12,11 @@ $(function() {
       var colors = param.split(",");
 
       colors = _.reject(colors, function(color) {
+        console.log(color);
         return color.length == 0;
       });
+
+      app.Colors.reset();
 
       _.each(colors, function(color) {
         app.Colors.addFromHex("#" + color);
