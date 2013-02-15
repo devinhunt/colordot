@@ -3,7 +3,7 @@ body {
   letter-spacing: 2px;
 }
 
-#colors {
+#swatches {
   position: fixed;
   top: 0; 
   bottom: 0;
@@ -11,7 +11,7 @@ body {
   width: 100%;
   margin: 0; padding: 0;
   
-  overflow-y: auto;
+  overflow-y: hidden;
   background: black;
   list-style: none;
 }
