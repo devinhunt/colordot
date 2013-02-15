@@ -16,7 +16,7 @@ $(function() {
       });
 
       _.each(colors, function(color) {
-        app.Colors.addFromHex(color);
+        app.Colors.addFromHex("#" + color);
       });
     },
 
@@ -25,7 +25,7 @@ $(function() {
      */
     pushColorState: function() {
       var hash = app.Colors.reduce(function(memo, color) {
-        return memo + color.hexCss() + ',';
+        return memo + color.hexCss().substr(1) + ',';
       }, "_");
 
       this.navigate(hash, {trigger: false});
