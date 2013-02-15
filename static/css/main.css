@@ -47,6 +47,10 @@ body {
   margin: 0; padding: 0;
 }
 
+#colors li .info small {
+  font-size: 10px;
+}
+
 #colors li .info .controls {
   line-height: 20px;
 }
