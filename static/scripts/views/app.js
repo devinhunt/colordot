@@ -9,6 +9,10 @@ $(function() {
     isTouchMove: false,
     startSaturation: 0,
 
+    events: {
+      "click #open-help": "togglehelp"
+    },
+
     initialize: function() {
       app.Colors.on("add", this.addOne, this);
       app.Colors.on("reset", this.addAll, this);
@@ -46,7 +50,7 @@ $(function() {
       var w = $(window).width(),
           sliceSize = Math.floor(w / (app.Colors.length + 2));
 
-      this.$('li:not(#edit):not(.destroyed)').each(function(i, el) {
+      this.$('#colors li:not(#edit):not(.destroyed)').each(function(i, el) {
         $(el).css({
           left: i * sliceSize,
           width: sliceSize,
@@ -62,12 +66,12 @@ $(function() {
 
     addOne: function(color) {
       var view = new app.ColorView({model: color});
-      this.$el.append(view.render().el);
+      this.$("#colors").append(view.render().el);
 
       view.$el.css({
         left: this.$("#edit").css("left"),
         width: this.$("#edit").css("width"),
-        "background": "#fff"
+        background: "#fff"
       });
 
       // defer the render for a frame
@@ -80,8 +84,12 @@ $(function() {
     },
 
     addAll: function() {
-      this.$.el.html('');
+      this.$("#colors").html('');
       app.Colors.each(this.addOne, this);
+    },
+
+    togglehelp: function(event) {
+      this.$("#help-box").toggleClass("open");
     },
 
     grabColor: function(event) {
