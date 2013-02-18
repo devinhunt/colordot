@@ -17,7 +17,6 @@ $(function() {
       var colors = param.split(",");
 
       colors = _.reject(colors, function(color) {
-        console.log(color);
         return color.length == 0;
       });
 
