@@ -78,8 +78,6 @@ $(function() {
         view.$el.css("background", view.model.hslCss());
         this.layout();
       }, this), 0);
-
-      //app.Router.pushColorState();
     },
 
     addAll: function() {

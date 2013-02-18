@@ -5,7 +5,12 @@ $(function() {
 
   var ColorRouter = Backbone.Router.extend({
     routes: {
-      "_*colors": "setColors"
+      "*colors": "setColors"
+    },
+
+    initialize: function(ops) {
+      app.Colors.on("add", this.pushColorState, this);
+      app.Colors.on("remove", this.pushColorState, this);
     },
 
     setColors: function(param) {
@@ -29,9 +34,9 @@ $(function() {
     pushColorState: function() {
       var hash = app.Colors.reduce(function(memo, color) {
         return memo + color.hexCss().substr(1) + ',';
-      }, "_");
+      }, "");
 
-      this.navigate(hash, {trigger: false});
+      this.navigate(hash, {trigger: false, replace: true});
     }
   });
 
