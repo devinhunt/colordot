@@ -3,6 +3,11 @@ body {
   letter-spacing: 2px;
 }
 
+button {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 2px;
+}
+
 #swatches {
   position: fixed;
   top: 0; 
@@ -113,7 +118,7 @@ body {
   width: 100%;
   text-align: center;
   
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .85);
   color: #fff;
 }
 
@@ -129,7 +134,7 @@ body {
   position: absolute;
   bottom: 100%;
   left: 20px;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .85);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
@@ -157,4 +162,30 @@ body {
 
 #help-box .social {
   margin-bottom: 30px;
+}
+
+/* Email form */
+#mc_embed_signup {
+  padding: 0 20px;
+  margin-bottom: 40px;
+  line-height: 2em;
+}
+
+#mc_embed_signup form {
+  text-align: center;
+}
+
+#mc_embed_signup input {
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  outline: none;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+#mc_embed_signup input[type="submit"] {
+  color: #fff;
+  background: #C9695E;
+  border: 1px solid #C9695E;
 }
