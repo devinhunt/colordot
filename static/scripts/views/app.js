@@ -68,14 +68,12 @@ $(function() {
 
       view.$el.css({
         left: this.$("#edit").css("left"),
-        width: this.$("#edit").css("width"),
-        background: "#fff"
+        width: this.$("#edit").css("width")
       });
 
       // defer the render for a frame
       setTimeout(_.bind(function() {
         view.$el.addClass("animating");
-        view.$el.css("background", view.model.hslCss());
         this.layout();
       }, this), 0);
     },
