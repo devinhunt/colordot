@@ -25,6 +25,10 @@ $(function() {
       return this.getColor().hslString();
     },
 
+    rgbCss: function() {
+      return this.getColor().rgbString();
+    },
+
     hexCss: function() {
       return this.getColor().hexString();
     }

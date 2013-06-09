@@ -21,7 +21,7 @@
     {% endblock content %}
 
     <!-- Templates -->
-    <script type="text/template" id="template-color">
+    <script type="text/html" id="template-color">
       <div class="color">
         <div class="info">
           <div class="rgb">
@@ -30,8 +30,14 @@
           <button class="destroy btn"><i class="icon-remove icon-large"></i></button>
         </div>
         <div class="meta-controls">
-          <button class="meta-details btn"><i class="icon-reorder icon-large"></i></button>
+          <button class="meta-details btn"><i class="icon-cog icon-large"></i></button>
         </div>
+      </div>
+      <div class="details">
+        <ul class="css-colors">
+          <li><%= colorRgb %></li>
+          <li><%= colorHsl %></li>
+        </ul>
       </div>
     </script>
 

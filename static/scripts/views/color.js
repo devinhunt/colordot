@@ -6,11 +6,13 @@ $(function() {
   app.ColorView = Backbone.View.extend({
 
     tagName: "li",
+    className: "swatch",
 
     template: _.template( $("#template-color").html() ),
 
     events: {
-      "click .destroy": "destroy"
+      "click .destroy": "destroy",
+      "click .meta-details": "toggleDetails"
     },
 
     initialize: function() {
@@ -21,7 +23,8 @@ $(function() {
     render: function() {
       this.$el.html(this.template({
         colorHex: this.model.hexCss(),
-        colorHsl: this.model.hslCss(),
+        colorRgb: this.model.rgbCss(),
+        colorHsl: this.model.hslCss()
       }));
 
       this.$('.color').css({
@@ -41,6 +44,11 @@ $(function() {
       setTimeout(_.bind(function() {
         this.remove();
       }, this), 500);
+    },
+
+    toggleDetails: function(event) {
+      event.preventDefault();
+      this.$el.toggleClass("show-details");
     }
 
   });

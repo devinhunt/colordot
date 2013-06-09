@@ -50,7 +50,7 @@ $(function() {
       var w = $(window).width(),
           sliceSize = Math.floor(w / (app.Colors.length + 2));
 
-      this.$('#colors li:not(#edit):not(.destroyed)').each(function(i, el) {
+      this.$('#colors .swatch:not(#edit):not(.destroyed)').each(function(i, el) {
         $(el).css({
           left: i * sliceSize,
           width: sliceSize,

@@ -475,6 +475,7 @@ table {
 body {
   font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
+  color: white;
 }
 button {
   font-family: 'Lato', sans-serif;
@@ -499,7 +500,7 @@ a {
   margin: 0;
   padding: 0;
 }
-#colors li {
+#colors .swatch {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -509,7 +510,7 @@ a {
   overflow: hidden;
   background: #051924;
 }
-#colors li .color {
+#colors .swatch .color {
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -o-transition: all .2s ease;
@@ -521,13 +522,13 @@ a {
   bottom: 0;
   z-index: 10;
 }
-#colors li .meta-controls {
+#colors .swatch .meta-controls {
   position: absolute;
   bottom: 40px;
   text-align: center;
   width: 100%;
 }
-#colors li .info {
+#colors .swatch .info {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -540,28 +541,33 @@ a {
   -o-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
   background: rgba(0, 0, 0, 0.5);
-  color: white;
   text-align: center;
 }
-#colors li .info h2 {
+#colors .swatch .info h2 {
   font-size: 14px;
   line-height: 30px;
   margin: 0;
   padding: 0;
 }
-#colors li .info small {
+#colors .swatch .info small {
   font-size: 10px;
 }
-#colors li .info .controls {
+#colors .swatch .info .controls {
   line-height: 20px;
 }
-#colors li.details .color {
+#colors .swatch .details {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+#colors .swatch.show-details .color {
   -webkit-transform: translate3d(0, -200px, 0);
   -moz-transform: translate3d(0, -200px, 0);
   -o-transform: translate3d(0, -200px, 0);
   transform: translate3d(0, -200px, 0);
 }
-#colors #edit {
+#edit {
   right: 0;
   -webkit-transition: left .2s ease;
   -moz-transition: left .2s ease;

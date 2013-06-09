@@ -1,6 +1,7 @@
 body {
   font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
+  color: white;
 }
 
 button {
@@ -29,7 +30,7 @@ a {
   margin: 0;
   padding: 0;
 
-  li {
+  .swatch {
     position: absolute;
     z-index: 10;
     top: 0; right: 0; bottom: 0; left: 0;
@@ -62,7 +63,6 @@ a {
       .translate3d(-50%, -50%, 0);
 
       background: rgba(0, 0, 0, .5);
-      color: white;
       text-align: center;
 
       h2 {
@@ -79,10 +79,18 @@ a {
         line-height: 20px;
       }
     }
+
+    .details {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+
+      text-align: center;
+    }
   }
 
   // Shows details about the color and controls to modify it
-  li.details {
+  .swatch.show-details {
     .color {
       .translate3d(0, -200px, 0);
     }
@@ -90,9 +98,8 @@ a {
 }
 
 
-#colors #edit {
+#edit {
   right: 0;
-
   // Only want to animation the positon
   .transition(~'left .2s ease');
 }
