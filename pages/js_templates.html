@@ -11,24 +11,36 @@
     </div>
   </div>
   <div class="details">
-    <div class="rgb-input">
-      <span class="number-input r">
+    <div class="color-input rgb">
+      rgb(<span class="number-widget r">
         <input type="text" value="<%= r %>" data-type="red" />
-        <button class="increment up">Up</button>
-        <button class="increment down">Down</button>
-      </span>
-
-      <span class="number-input g">
+        <button class="stepper up btn"><i class="icon-caret-up"></i></button>
+        <button class="stepper down btn"><i class="icon-caret-down"></i></button>
+      </span>,<span class="number-widget g">
         <input type="text" value="<%= g %>" data-type="green" />
-        <button class="increment up">Up</button>
-        <button class="increment down">Down</button>
-      </span>
-
-      <span class="number-input b">
+        <button class="stepper up btn"><i class="icon-caret-up"></i></button>
+        <button class="stepper down btn"><i class="icon-caret-down"></i></button>
+      </span>,<span class="number-widget b">
         <input type="text" value="<%= b %>" data-type="blue" />
-        <button class="increment up">Up</button>
-        <button class="increment down">Down</button>
-      </span>
+        <button class="stepper up btn"><i class="icon-caret-up"></i></button>
+        <button class="stepper down btn"><i class="icon-caret-down"></i></button>
+      </span>)
+    </div>
+
+    <div class="color-input hsl">
+      hsl(<span class="number-widget h">
+        <input type="text" value="<%= h %>" data-type="hue" />
+        <button class="stepper up btn"><i class="icon-caret-up"></i></button>
+        <button class="stepper down btn"><i class="icon-caret-down"></i></button>
+      </span>,<span class="number-widget s">
+        <input type="text" value="<%= s %>" data-type="saturation" />
+        <button class="stepper up btn"><i class="icon-caret-up"></i></button>
+        <button class="stepper down btn"><i class="icon-caret-down"></i></button>
+      </span>,<span class="number-widget l">
+        <input type="text" value="<%= l %>" data-type="lightness" />
+        <button class="stepper up btn"><i class="icon-caret-up"></i></button>
+        <button class="stepper down btn"><i class="icon-caret-down"></i></button>
+      </span>)
     </div>
   </div>
 </script>

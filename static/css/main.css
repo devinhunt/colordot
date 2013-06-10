@@ -494,10 +494,16 @@ table {
   -o-transition: transform 0.2s ease;
   transition: transform 0.2s ease;
 }
+/* ==========================================================================
+   Site Globals
+   ========================================================================== */
 body {
   font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
   color: white;
+}
+input {
+  font-family: 'Lato', sans-serif;
 }
 button {
   font-family: 'Lato', sans-serif;
@@ -506,6 +512,9 @@ button {
 a {
   color: white;
 }
+/* ==========================================================================
+   App
+   ========================================================================== */
 #swatches {
   position: fixed;
   top: 0;
@@ -624,6 +633,46 @@ a {
   width: 100%;
   height: 100%;
   padding-bottom: 1000px;
+}
+/* ==========================================================================
+   Widgets
+   ========================================================================== */
+.color-input {
+  height: 80px;
+  line-height: 80px;
+}
+.number-widget {
+  position: relative;
+  display: inline-block;
+  height: 80px;
+  line-height: 80px;
+}
+.number-widget [type="text"] {
+  display: inline-block;
+  width: 40px;
+  line-height: 20px;
+  text-align: center ;
+  color: white;
+  outline: 0;
+  border: none;
+  background: transparent;
+}
+.number-widget .stepper {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+}
+.number-widget .stepper.up {
+  top: 0;
+}
+.number-widget .stepper.down {
+  bottom: 0;
 }
 .btn {
   background: none;

@@ -1,7 +1,14 @@
+/* ==========================================================================
+   Site Globals
+   ========================================================================== */
 body {
   font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
   color: white;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
 }
 
 button {
@@ -12,6 +19,10 @@ button {
 a {
   color: white;
 }
+
+/* ==========================================================================
+   App
+   ========================================================================== */
 
 #swatches {
   position: fixed;
@@ -97,7 +108,6 @@ a {
   }
 }
 
-
 #edit {
   right: 0;
   // Only want to animation the positon
@@ -117,6 +127,56 @@ a {
   width: 100%;
   height: 100%;
   padding-bottom: 1000px;
+}
+
+/* ==========================================================================
+   Widgets
+   ========================================================================== */
+
+.color-input {
+  height: 80px;
+  line-height: 80px;
+}
+
+@numberWidgetWidth: 40px;
+@numberWidgetHeight: 80px;
+.number-widget {
+  position: relative;
+  display: inline-block;
+  height: @numberWidgetHeight;
+  line-height: @numberWidgetHeight;
+
+  [type="text"] {
+    display: inline-block;
+    width: @numberWidgetWidth;
+    line-height: @numberWidgetHeight / 4;
+
+    text-align: center ;
+
+    color: white;
+    outline: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .stepper {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: @numberWidgetWidth;
+    padding: 0; margin: 0;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+
+    &.up {
+      top: 0;
+    }
+
+    &.down {
+      bottom: 0;
+    }
+  }
 }
 
 .btn {

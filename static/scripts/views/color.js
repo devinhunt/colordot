@@ -6,16 +6,17 @@ $(function() {
   app.ColorView = Backbone.View.extend({
 
     tagName: "li",
-    className: "swatch",
+    className: "swatch show-details",
 
     template: _.template( $("#template-color").html() ),
 
     events: {
       "click .destroy": "destroy",
       "click .meta-details": "toggleDetails",
-      "change .number-input input": "changeColorInput",
-      "click .number-input .up": "incrementValue",
-      "click .number-input .down": "decrementValue"
+      "change .rgb .number-widget input": "changeColorRgb",
+      "change .hsl .number-widget input": "changeColorHsl",
+      "click .number-widget .up": "incrementValue",
+      "click .number-widget .down": "decrementValue"
     },
 
     initialize: function() {
@@ -30,7 +31,10 @@ $(function() {
         colorHex: color.hexString(),
         r: color.red(),
         g: color.green(),
-        b: color.blue()
+        b: color.blue(),
+        h: color.hue(),
+        s: color.saturation(),
+        l: color.lightness()
       }));
 
       this.$('.color').css({
@@ -57,7 +61,7 @@ $(function() {
       this.$el.toggleClass("show-details");
     },
 
-    changeColorInput: function(event) {
+    changeColorRgb: function(event) {
       var r = this.$('[data-type="red"]').val(),
           g = this.$('[data-type="green"]').val(),
           b = this.$('[data-type="blue"]').val();
@@ -67,9 +71,19 @@ $(function() {
       this.model.trigger("change");
     },
 
+    changeColorHsl: function(event) {
+      var h = this.$('[data-type="hue"]').val(),
+          s = this.$('[data-type="saturation"]').val(),
+          l = this.$('[data-type="lightness"]').val();
+      this.model.color().hue(h)
+        .saturation(s)
+        .lightness(l);
+      this.model.trigger("change");
+    },
+
     incrementValue: function(event) {
       event.preventDefault();
-      var type = $(event.target).siblings('input').data('type');
+      var type = $(event.target).parents('.number-widget').find('input').data('type');
       var color = this.model.color();
       color[type](color[type]() + 1);
       this.model.trigger("change");
@@ -77,6 +91,10 @@ $(function() {
 
     decrementValue: function(event) {
       event.preventDefault();
+      var type = $(event.target).parents('.number-widget').find('input').data('type');
+      var color = this.model.color();
+      color[type](color[type]() - 1);
+      this.model.trigger("change");
     }
   });
 });
