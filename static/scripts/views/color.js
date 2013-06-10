@@ -24,7 +24,7 @@ $(function() {
     },
 
     render: function() {
-      var color = this.model.getColor();
+      var color = this.model.color();
 
       this.$el.html(this.template({
         colorHex: color.hexString(),
@@ -58,20 +58,21 @@ $(function() {
     },
 
     changeColorInput: function(event) {
-      var color = this.model.getColor();
-      var valueType = $(event.target).data('type');
-      var value = $(event.target).val();
-      color[valueType](value);
-      this.model.setColor(color);
+      var r = this.$('[data-type="red"]').val(),
+          g = this.$('[data-type="green"]').val(),
+          b = this.$('[data-type="blue"]').val();
+      this.model.color().red(r)
+        .green(g)
+        .blue(b);
+      this.model.trigger("change");
     },
 
     incrementValue: function(event) {
       event.preventDefault();
       var type = $(event.target).siblings('input').data('type');
-      var color = this.model.getColor();
-      console.log(color[type]() + 1);
+      var color = this.model.color();
       color[type](color[type]() + 1);
-      this.model.setColor(color);
+      this.model.trigger("change");
     },
 
     decrementValue: function(event) {

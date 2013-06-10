@@ -8,11 +8,7 @@ $(function() {
 
     addFromHex: function(hex) {
       var c = Color(hex);
-      this.add({
-        h: c.hue(),
-        s: c.saturation(),
-        l: c.lightness()
-      });
+      this.add({color: c});
     }
   });
 

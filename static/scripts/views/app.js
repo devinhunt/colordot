@@ -93,9 +93,7 @@ $(function() {
 
     grabColor: function(event) {
       app.Colors.add({
-        h: this.editModel.get("h"),
-        s: this.editModel.get("s"),
-        l: this.editModel.get("l"),
+        color: new Color(this.editModel.color().rgb())
       });
     },
 
@@ -103,7 +101,7 @@ $(function() {
       var editEl = this.$("#edit"),
           w = editEl.width(),
           h = editEl.height(),
-          x, y, offset, hue, lit, col;
+          x, y, offset, hue, lit;
 
       offset = editEl.offset();
 
@@ -113,19 +111,16 @@ $(function() {
       hue = Math.floor(x / w * 360),
       lit = Math.floor(y / h * 100);
 
-      this.editModel.set({
-        h: hue,
-        l: lit
-      });
+      this.editModel.color().hue(hue)
+        .lightness(lit);
+      this.editModel.trigger("change");
     },
 
     scroll: function(event) {
-      var offset = this.$("#constraints").scrollTop() / 10;
+      var col, offset = this.$("#constraints").scrollTop() / 10;
       offset = Math.max(0, Math.min(100, offset));
-
-      this.editModel.set({
-        s: offset
-      });
+      this.editModel.color().saturation(offset);
+      this.editModel.trigger("change");
     },
 
     mousemove: function(event) {
@@ -157,9 +152,8 @@ $(function() {
 
       if(event.originalEvent.scale) {
         var offset = Math.max(0, Math.min(100, this.startSaturation * event.originalEvent.scale));
-        this.editModel.set({
-          s: offset
-        });
+        this.editModel.color().saturation(offset);
+        this.editModel.trigger("change");
       }
     }
 

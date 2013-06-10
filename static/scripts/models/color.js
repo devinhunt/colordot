@@ -5,44 +5,29 @@ $(function() {
 
   app.Color = Backbone.Model.extend({
     defaults: {
-      h: 0,
-      s: 0,
-      l: 0
+      color: new Color()
     },
 
     /**
-     * Returns a manipulable color object
+     * Setter and getter for manipulable color objects
      */
-    getColor: function() {
-      return Color({
-        h: this.get("h"),
-        s: this.get("s"),
-        l: this.get("l")
-      });
-    },
-
-    /**
-     * Sets this models color to a color stored in
-     * a Color object
-     */
-    setColor: function(color) {
-      this.set({
-        h: color.hue(),
-        s: color.saturation(),
-        l: color.lightness()
-      });
+    color: function(color) {
+      if(color) {
+        this.set({color: color})
+      }
+      return this.get("color");
     },
 
     hslCss: function() {
-      return this.getColor().hslString();
+      return this.color().hslString();
     },
 
     rgbCss: function() {
-      return this.getColor().rgbString();
+      return this.color().rgbString();
     },
 
     hexCss: function() {
-      return this.getColor().hexString();
+      return this.color().hexString();
     }
 
   });

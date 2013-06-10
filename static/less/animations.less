@@ -1,3 +1,15 @@
+.animating(@prop) {
+  .transition(@prop .2s ease);
+}
+
 .animating {
-  .transition(~'all .2s ease');
+  .animating(all);
+}
+
+.animateTransforms {
+  .animating(-webkit-transform);
+  .animating(-moz-transform);
+  .animating(-ms-transform);
+  .animating(-o-transform);
+  .animating(transform);
 }
