@@ -689,11 +689,11 @@ a {
   background: none;
   border: none;
   outline: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   padding: 10px;
 }
 .btn:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
 }
 /* Sucken buttons */
 /** Help panel */
