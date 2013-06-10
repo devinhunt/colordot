@@ -21,25 +21,7 @@
     {% endblock content %}
 
     <!-- Templates -->
-    <script type="text/html" id="template-color">
-      <div class="color">
-        <div class="info">
-          <div class="rgb">
-            <h2><%= colorHex %></h2>
-          </div>
-          <button class="destroy btn"><i class="icon-remove icon-large"></i></button>
-        </div>
-        <div class="meta-controls">
-          <button class="meta-details btn"><i class="icon-cog icon-large"></i></button>
-        </div>
-      </div>
-      <div class="details">
-        <ul class="css-colors">
-          <li><%= colorRgb %></li>
-          <li><%= colorHsl %></li>
-        </ul>
-      </div>
-    </script>
+    {% include "js_templates.html" %}
 
     <!-- Libraries -->
     <script src="{{ STATIC_URL }}/scripts/vendor/jquery.min.js"></script>

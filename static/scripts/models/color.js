@@ -21,6 +21,18 @@ $(function() {
       });
     },
 
+    /**
+     * Sets this models color to a color stored in
+     * a Color object
+     */
+    setColor: function(color) {
+      this.set({
+        h: color.hue(),
+        s: color.saturation(),
+        l: color.lightness()
+      });
+    },
+
     hslCss: function() {
       return this.getColor().hslString();
     },

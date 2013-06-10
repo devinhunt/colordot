@@ -1,0 +1,34 @@
+<script type="text/html" id="template-color">
+  <div class="color">
+    <div class="info">
+      <div class="rgb">
+        <h2><%= colorHex %></h2>
+      </div>
+      <button class="destroy btn"><i class="icon-remove icon-large"></i></button>
+    </div>
+    <div class="meta-controls">
+      <button class="meta-details btn"><i class="icon-cog icon-large"></i></button>
+    </div>
+  </div>
+  <div class="details">
+    <div class="rgb-input">
+      <span class="number-input r">
+        <input type="text" value="<%= r %>" data-type="red" />
+        <button class="increment up">Up</button>
+        <button class="increment down">Down</button>
+      </span>
+
+      <span class="number-input g">
+        <input type="text" value="<%= g %>" data-type="green" />
+        <button class="increment up">Up</button>
+        <button class="increment down">Down</button>
+      </span>
+
+      <span class="number-input b">
+        <input type="text" value="<%= b %>" data-type="blue" />
+        <button class="increment up">Up</button>
+        <button class="increment down">Down</button>
+      </span>
+    </div>
+  </div>
+</script>
