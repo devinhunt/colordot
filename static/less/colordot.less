@@ -93,17 +93,29 @@ a {
 
     .details {
       position: absolute;
-      bottom: 20px;
+      bottom: 0;
       width: 100%;
+      padding: 50px 0;
+      min-width: 200px;
 
       text-align: center;
+    }
+
+    &.light .color {
+      .btn {
+        color: rgba(0, 0, 0, .5);
+      }
+
+      .btn:hover {
+        color: rgba(0, 0, 0, .9);
+      }
     }
   }
 
   // Shows details about the color and controls to modify it
   .swatch.show-details {
     .color {
-      .translate3d(0, -200px, 0);
+      .translate3d(0, -260px, 0);
     }
   }
 }
@@ -179,18 +191,36 @@ a {
   }
 }
 
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 .btn {
   background: none;
   border: none;
   outline: none;
-  color: #ccc;
+  color: rgba(255, 255, 255, .5);
 
   padding: 10px;
 }
 
 .btn:hover {
-  color: white;
+  color: rgba(255, 255, 255, .9);
 }
+
+/* Sucken buttons */
+// .btn.btn-sunken {
+//   .border-radius(4px);
+//   .animating();
+//   padding: 20px;
+//   &:active, &.active {
+//     .box-shadow(~'0px -5px 0px rgba(0, 0, 0, .4), 0px 0px 1px rgba(255, 255, 255, .8)');
+//     border-bottom: 1px solid rgba(0, 0, 0, .1);
+//     background: rgba(0, 0, 0, .1);
+//     padding-bottom: 15px;
+//   }
+// }
+
 
 /** Help panel */
 #help-box {

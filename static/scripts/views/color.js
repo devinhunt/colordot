@@ -6,7 +6,7 @@ $(function() {
   app.ColorView = Backbone.View.extend({
 
     tagName: "li",
-    className: "swatch show-details",
+    className: "swatch",
 
     template: _.template( $("#template-color").html() ),
 
@@ -40,6 +40,10 @@ $(function() {
       this.$('.color').css({
         backgroundColor: color.hslString()
       });
+
+      if(color.lightness() > 50) {
+        this.$el.addClass('light');
+      }
 
       return this;
     },

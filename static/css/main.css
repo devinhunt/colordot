@@ -604,15 +604,23 @@ a {
 }
 #colors .swatch .details {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   width: 100%;
+  padding: 50px 0;
+  min-width: 200px;
   text-align: center;
 }
+#colors .swatch.light .color .btn {
+  color: rgba(0, 0, 0, 0.5);
+}
+#colors .swatch.light .color .btn:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
 #colors .swatch.show-details .color {
-  -webkit-transform: translate3d(0, -200px, 0);
-  -moz-transform: translate3d(0, -200px, 0);
-  -o-transform: translate3d(0, -200px, 0);
-  transform: translate3d(0, -200px, 0);
+  -webkit-transform: translate3d(0, -260px, 0);
+  -moz-transform: translate3d(0, -260px, 0);
+  -o-transform: translate3d(0, -260px, 0);
+  transform: translate3d(0, -260px, 0);
 }
 #edit {
   right: 0;
@@ -674,16 +682,20 @@ a {
 .number-widget .stepper.down {
   bottom: 0;
 }
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 .btn {
   background: none;
   border: none;
   outline: none;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.5);
   padding: 10px;
 }
 .btn:hover {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
 }
+/* Sucken buttons */
 /** Help panel */
 #help-box {
   position: absolute;
