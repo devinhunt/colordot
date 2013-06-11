@@ -10,13 +10,15 @@ $(function() {
 
     template: _.template( $("#template-color").html() ),
 
+    isIncrementing: false,
+
     events: {
       "click .destroy": "destroy",
       "click .meta-details": "toggleDetails",
       "change .rgb .number-widget input": "changeColorRgb",
       "change .hsl .number-widget input": "changeColorHsl",
-      "click .number-widget .up": "incrementValue",
-      "click .number-widget .down": "decrementValue"
+      "mousedown .number-widget .up": "incrementValue",
+      "mousedown .number-widget .down": "decrementValue"
     },
 
     initialize: function() {
@@ -88,17 +90,30 @@ $(function() {
     incrementValue: function(event) {
       event.preventDefault();
       var type = $(event.target).parents('.number-widget').find('input').data('type');
-      var color = this.model.color();
-      color[type](color[type]() + 1);
-      this.model.trigger("change");
+      this.repeater(type, 1);
     },
 
     decrementValue: function(event) {
       event.preventDefault();
       var type = $(event.target).parents('.number-widget').find('input').data('type');
-      var color = this.model.color();
-      color[type](color[type]() - 1);
-      this.model.trigger("change");
+      this.repeater(type, -1);
+    },
+
+    repeater: function(type, amount) {
+      var model = this.model,
+          color = model.color();
+
+      var action = function() {
+        color[type](color[type]() + amount);
+        model.trigger("change");
+      }
+      action();
+
+      var intervalId = setInterval(action, 100);
+
+      $(window).one("mouseup", function() {
+        clearInterval(intervalId);
+      });
     }
   });
 });

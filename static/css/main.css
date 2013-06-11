@@ -580,8 +580,19 @@ a {
   clear: both;
 }
 #header .container {
+  *zoom: 1;
   width: 600px;
   margin: 0 auto;
+  padding-bottom: 20px;
+}
+#header .container:before,
+#header .container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#header .container:after {
+  clear: both;
 }
 #header .panel {
   float: left;
@@ -592,8 +603,10 @@ a {
 #header .logo {
   text-align: center;
 }
-#header .logo h1 {
+#header .logo h1,
+#header .logo h3 {
   margin: 0;
+  font-size: 14px;
 }
 #header h2 {
   font-size: 14px;
