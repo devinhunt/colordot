@@ -3,8 +3,10 @@
    ========================================================================== */
 body {
   font-family: 'Lato', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  font-size: 16px;
   color: white;
+  background: #051924;
 }
 
 input {
@@ -24,17 +26,86 @@ a {
    App
    ========================================================================== */
 
-#swatches {
+#appframe {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   width: 100%;
   margin: 0; padding: 0;
+  .animateTransforms();
+
+  &.show-header {
+    .translate3d(0, 500px, 0);
+  }
+}
+
+#header {
+  .clearfix();
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+
+  .container {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  .panel {
+    float: left;
+    width: 250px;
+    padding: 0 25px;
+    text-align: center;
+  }
+
+  .logo {
+    text-align: center;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  h2 {
+    font-size: 14px;
+    line-height: 28px;
+    margin: 28px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+  }
+
+  #instructions {
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 28px 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+#header-tab {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  background: #051924;
+  .border-radius(0 0 4px 4px);
+  z-index: 100;
+}
+
+#swatches {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 
   overflow-y: hidden;
   background: black;
   list-style: none;
+
+  .translate3d(0, 0, 0);
 }
 
 #colors {
@@ -46,7 +117,6 @@ a {
     z-index: 10;
     top: 0; right: 0; bottom: 0; left: 0;
     overflow: hidden;
-    background: #051924;
 
     .color {
       .animateTransforms();
@@ -208,98 +278,35 @@ a {
   color: rgba(255, 255, 255, 1);
 }
 
-/* Sucken buttons */
-// .btn.btn-sunken {
-//   .border-radius(4px);
-//   .animating();
-//   padding: 20px;
-//   &:active, &.active {
-//     .box-shadow(~'0px -5px 0px rgba(0, 0, 0, .4), 0px 0px 1px rgba(255, 255, 255, .8)');
-//     border-bottom: 1px solid rgba(0, 0, 0, .1);
-//     background: rgba(0, 0, 0, .1);
-//     padding-bottom: 15px;
-//   }
-// }
-
-
-/** Help panel */
-#help-box {
-  position: absolute;
-  z-index: 100;
-
-  top: 100%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 20px;
-
-  background: rgba(0, 0, 0, .85);
-  color: #fff;
-}
-
-#help-box.open {
-  -webkit-transform: translate3d(0, -100%, 0);
-  -moz-transform: translate3d(0, -100%, 0);
-  -ms-transform: translate3d(0, -100%, 0);
-  -o-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-}
-
-#open-help {
-  position: absolute;
-  bottom: 100%;
-  left: 20px;
-  background: rgba(0, 0, 0, .85);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
-#help-box h1 {
-  font-size: 18px;
-  line-height: 60px;
-  height: 60px;
-  margin: 0; padding: 0;
-}
-
-#help-box ul {
-  list-style: none;
-  margin: 0; padding: 0;
-}
-
-#help-box li {
-  display: inline-block;
-  text-align: center;
-  height: 140px;
-  width: 150px;
-  margin: 0 20px;
-  vertical-align: top;
-}
-
-#help-box .social {
-  margin-bottom: 30px;
-}
-
 /* Email form */
 #mc_embed_signup {
   padding: 0 10px;
   line-height: 2em;
-}
 
-#mc_embed_signup form {
-  text-align: center;
-}
+  form {
+    text-align: center;
+  }
 
-#mc_embed_signup input {
-  font-family: 'Lato', sans-serif;
-  background: #fff;
-  outline: none;
-  border: 1px solid #eee;
-  border-radius: 3px;
-  padding: 10px;
-}
+  input {
+    font-family: 'Lato', sans-serif;
+    background: #fff;
+    outline: none;
+    border: 1px solid #eee;
+    padding: 10px;
+  }
 
-#mc_embed_signup input[type="submit"] {
-  color: #fff;
-  background: #C9695E;
-  border: 1px solid #C9695E;
+  input[type="email"] {
+    width: 110px;
+    border-right: 1px solid #D94726;
+    .border-radius(3px 0 0 3px);
+  }
+
+  input[type="submit"] {
+    color: #fff;
+    background: #C9695E;
+    border: 1px solid #C9695E;
+    .border-radius(0 3px 3px 0);
+    padding: 10px 0;
+    width: 90px;
+  }
 }

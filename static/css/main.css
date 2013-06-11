@@ -466,6 +466,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
 .animating {
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -499,8 +511,10 @@ table {
    ========================================================================== */
 body {
   font-family: 'Lato', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  font-size: 16px;
   color: white;
+  background: #051924;
 }
 input {
   font-family: 'Lato', sans-serif;
@@ -515,7 +529,7 @@ a {
 /* ==========================================================================
    App
    ========================================================================== */
-#swatches {
+#appframe {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -523,9 +537,102 @@ a {
   width: 100%;
   margin: 0;
   padding: 0;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  -moz-transition: -webkit-transform 0.2s ease;
+  -o-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  -webkit-transition: -moz-transform 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease;
+  -o-transition: -moz-transform 0.2s ease;
+  transition: -moz-transform 0.2s ease;
+  -webkit-transition: -ms-transform 0.2s ease;
+  -moz-transition: -ms-transform 0.2s ease;
+  -o-transition: -ms-transform 0.2s ease;
+  transition: -ms-transform 0.2s ease;
+  -webkit-transition: -o-transform 0.2s ease;
+  -moz-transition: -o-transform 0.2s ease;
+  -o-transition: -o-transform 0.2s ease;
+  transition: -o-transform 0.2s ease;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+#appframe.show-header {
+  -webkit-transform: translate3d(0, 500px, 0);
+  -moz-transform: translate3d(0, 500px, 0);
+  -o-transform: translate3d(0, 500px, 0);
+  transform: translate3d(0, 500px, 0);
+}
+#header {
+  *zoom: 1;
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+}
+#header:before,
+#header:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#header:after {
+  clear: both;
+}
+#header .container {
+  width: 600px;
+  margin: 0 auto;
+}
+#header .panel {
+  float: left;
+  width: 250px;
+  padding: 0 25px;
+  text-align: center;
+}
+#header .logo {
+  text-align: center;
+}
+#header .logo h1 {
+  margin: 0;
+}
+#header h2 {
+  font-size: 14px;
+  line-height: 28px;
+  margin: 28px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+#header #instructions {
+  padding: 0;
+  list-style: none;
+}
+#header #instructions li {
+  margin: 28px 0;
+}
+#header #instructions p {
+  margin: 0;
+}
+#header-tab {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  background: #051924;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  z-index: 100;
+}
+#swatches {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
   overflow-y: hidden;
   background: black;
   list-style: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 #colors {
   margin: 0;
@@ -539,7 +646,6 @@ a {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background: #051924;
 }
 #colors .swatch .color {
   -webkit-transition: -webkit-transform 0.2s ease;
@@ -695,57 +801,6 @@ a {
 .btn:hover {
   color: #ffffff;
 }
-/* Sucken buttons */
-/** Help panel */
-#help-box {
-  position: absolute;
-  z-index: 100;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 20px;
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-}
-#help-box.open {
-  -webkit-transform: translate3d(0, -100%, 0);
-  -moz-transform: translate3d(0, -100%, 0);
-  -ms-transform: translate3d(0, -100%, 0);
-  -o-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-}
-#open-help {
-  position: absolute;
-  bottom: 100%;
-  left: 20px;
-  background: rgba(0, 0, 0, 0.85);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-#help-box h1 {
-  font-size: 18px;
-  line-height: 60px;
-  height: 60px;
-  margin: 0;
-  padding: 0;
-}
-#help-box ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#help-box li {
-  display: inline-block;
-  text-align: center;
-  height: 140px;
-  width: 150px;
-  margin: 0 20px;
-  vertical-align: top;
-}
-#help-box .social {
-  margin-bottom: 30px;
-}
 /* Email form */
 #mc_embed_signup {
   padding: 0 10px;
@@ -759,11 +814,22 @@ a {
   background: #fff;
   outline: none;
   border: 1px solid #eee;
-  border-radius: 3px;
   padding: 10px;
+}
+#mc_embed_signup input[type="email"] {
+  width: 110px;
+  border-right: 1px solid #D94726;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
 }
 #mc_embed_signup input[type="submit"] {
   color: #fff;
   background: #C9695E;
   border: 1px solid #C9695E;
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+  padding: 10px 0;
+  width: 90px;
 }

@@ -1,64 +1,74 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="swatches">
-  <ul id="colors">
-    <li id="edit" class="swatch animating">
-      <div class="info">
-        <h2></h2>
-        <small>Click to save</small>
+<div id="appframe" class="show-header">
+  <div id="header">
+    <div class="container">
+      <div class="logo">
+        <h1><img src="{{ STATIC_URL }}/img/logo.svg" width="100" height="100"/></h1>
       </div>
-      <div id="constraints"><div></div></div>
-    </li>
-  </ul>
 
-  <div id="help-box" class="animating">
-    <div class="content">
-      <h1>
-        color.hailpixel.com
-        <small>by <a href="http://www.hailpixel.com/">hailpixel</a></small>
-      </h1>
+      <div class="panel">
+        <h2>How to</h2>
 
-      <ul id="help">
-        <li>
-          <i class="icon-resize-horizontal icon-4x"></i>
-          <p>
-            Back &amp; Forth for Hue
-          </p>
-        </li>
-        <li>
-          <i class="icon-resize-vertical icon-4x"></i>
-          <p>
-            Up &amp; Down for Lightness
-          </p>
-        </li>
+        <ul id="instructions">
+          <li>
+            <i class="icon-resize-horizontal icon-2x"></i>
+            <p>
+              Back &amp; Forth for Hue
+            </p>
+          </li>
 
-        <li>
-          <i class="icon-sort icon-4x"></i>
-          <p>
-            Scroll for Saturation
-          </p>
-        </li>
-      </ul>
+          <li>
+            <i class="icon-resize-vertical icon-2x"></i>
+            <p>
+              Up &amp; Down for Lightness
+            </p>
+          </li>
 
-      <p class="social">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://color.hailpixel.com" data-via="hailpixel">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcolor.hailpixel.com&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=165372770211726" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
-      </p>
-
-      <!-- Begin MailChimp Signup Form -->
-      <div id="mc_embed_signup">
-      <form action="http://gmail.us6.list-manage1.com/subscribe/post?u=f3892097e4&amp;id=41db3720b5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-        <label for="mce-EMAIL">I'm making this a proper app! Get alerted when it's ready</label>
-        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-      </form>
+          <li>
+            <i class="icon-sort icon-2x"></i>
+            <p>
+              Scroll for Saturation
+            </p>
+          </li>
+        </ul>
       </div>
-      <!--End mc_embed_signup-->
+      <div class="panel">
+        <h2>Share the love</h2>
+        <p class="social">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://color.hailpixel.com" data-via="hailpixel">Tweet</a>
+          <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcolor.hailpixel.com&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=165372770211726" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+          <!-- Place this tag where you want the +1 button to render. -->
+          <div class="g-plusone" data-size="medium" data-href="http://color.hailpixel.com/"></div>
+        </p>
 
+        <!-- Begin MailChimp Signup Form -->
+        <h2>Get involved</h2>
+        <div id="mc_embed_signup">
+        <form action="http://gmail.us6.list-manage1.com/subscribe/post?u=f3892097e4&amp;id=41db3720b5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <label for="mce-EMAIL">Get notified the app is ready!</label>
+          <br />
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </form>
+        </div>
+        <!--End mc_embed_signup-->
+      </div>
     </div>
-    <button id="open-help" class="btn"><i class="icon-question-sign icon-large"></i> + news</button>
+
+    <button id="header-tab" class="btn"><i class="icon-question-sign icon-large"></i> color.</button>
+  </div>
+
+  <div id="swatches">
+    <ul id="colors">
+      <li id="edit" class="swatch animating">
+        <div class="info">
+          <h2></h2>
+          <small>Click to save</small>
+        </div>
+        <div id="constraints"><div></div></div>
+      </li>
+    </ul>
   </div>
 </div>
 {% endblock content %}

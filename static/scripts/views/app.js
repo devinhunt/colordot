@@ -4,13 +4,13 @@ $(function() {
   "use strict";
 
   app.SwatchAppView = Backbone.View.extend({
-    el: "#swatches",
+    el: "#appframe",
 
     isTouchMove: false,
     startSaturation: 0,
 
     events: {
-      "click #open-help": "togglehelp"
+      "click #header-tab": "toggleheader"
     },
 
     initialize: function() {
@@ -87,8 +87,8 @@ $(function() {
       }
     },
 
-    togglehelp: function(event) {
-      this.$("#help-box").toggleClass("open");
+    toggleheader: function(event) {
+      this.$el.toggleClass("show-header");
     },
 
     grabColor: function(event) {
