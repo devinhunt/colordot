@@ -21,7 +21,7 @@ $(function() {
       this.editModel = new app.Color({h: 180, s: 50, l: 50});
       this.editModel.on("change", this.render, this);
 
-      if(window.Touch) {
+      if('ontouchstart' in document.documentElement) {
         this.$("#edit").bind("touchstart", _.bind(this.touchstart, this))
           .bind("touchmove", _.bind(this.touchmove, this))
           .bind("touchend", _.bind(this.touchend, this))
